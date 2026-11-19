@@ -1,0 +1,18 @@
+# Configuration lue par la plateforme (schéma versionné). Voir docs/SETUP_GITHUB.md.
+schema_version = 1
+name = "GitHub Example Bot"
+language = "node"
+support_contact = "you@example.com"
+
+# Version gratuite : /ping, /premium-status, /vip (renvoie vers le marché).
+[free]
+start_command = "node index.js"
+
+# Version premium : le même code, la variable TIER vaut "premium".
+[premium]
+start_command = "node index.js"
+
+[[premium.plans]]
+id = "monthly"
+interval = "month"
+price_cents = 500

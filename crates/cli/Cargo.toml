@@ -1,0 +1,22 @@
+[package]
+name = "platform-cli"
+version = "0.1.0"
+edition = "2021"
+publish = false
+
+[[bin]]
+name = "platform"
+path = "src/main.rs"
+
+[dependencies]
+platform-core = { path = "../core" }
+platform-config = { path = "../config" }
+platform-store = { path = "../store" }
+platform-api = { path = "../api" }
+platform-runner = { path = "../runner" }
+axum = "0.8.9"
+tokio = { version = "1.54.1", features = ["rt-multi-thread", "net", "macros", "time"] }
+platform-web = { path = "../web" }
+platform-github = { path = "../github" }
+platform-stripe = { path = "../stripe" }
+platform-build = { path = "../build" }

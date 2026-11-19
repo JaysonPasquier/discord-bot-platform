@@ -1,0 +1,24 @@
+[package]
+name = "platform-web"
+version = "0.1.0"
+edition = "2021"
+publish = false
+
+[dependencies]
+platform-core = { path = "../core" }
+platform-store = { path = "../store" }
+platform-runner = { path = "../runner" }
+platform-config = { path = "../config" }
+platform-github = { path = "../github" }
+platform-stripe = { path = "../stripe" }
+platform-build = { path = "../build" }
+axum = { version = "0.8.9", features = ["multipart"] }
+serde = { version = "1.0.229", features = ["derive"] }
+serde_json = "1.0.154"
+tokio = { version = "1.54.1", features = ["rt-multi-thread", "macros"] }
+ureq = "3.5.1"
+
+[dev-dependencies]
+ring = "0.17.14"
+platform-testkit = { path = "../testkit" }
+tower = { version = "0.5.3", features = ["util"] }

@@ -1,0 +1,9 @@
+[package]
+name = "platform-config"
+version = "0.1.0"
+edition = "2021"
+publish = false
+
+[dependencies]
+serde = { version = "1.0.229", features = ["derive"] }
+toml = "1.2.1"

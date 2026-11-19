@@ -1,0 +1,13 @@
+[package]
+name = "botplatform-sdk"
+version = "0.1.0"
+edition = "2021"
+description = "Rust SDK for the BotPlatform premium check API"
+publish = false
+
+[dependencies]
+ureq = { version = "3.0", features = ["json"] }
+serde = { version = "1", features = ["derive"] }
+
+[dev-dependencies]
+platform-testkit = { path = "../../crates/testkit" }

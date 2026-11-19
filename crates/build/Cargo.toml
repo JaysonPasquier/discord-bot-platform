@@ -1,0 +1,17 @@
+[package]
+name = "platform-build"
+version = "0.1.0"
+edition = "2021"
+publish = false
+
+[dependencies]
+platform-config = { path = "../config" }
+platform-github = { path = "../github" }
+platform-runner = { path = "../runner" }
+flate2 = "1.1.11"
+tar = "0.4.46"
+
+[dev-dependencies]
+flate2 = "1.1.11"
+tar = "0.4.46"
+tempfile = "3.14.0"

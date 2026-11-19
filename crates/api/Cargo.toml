@@ -1,0 +1,15 @@
+[package]
+name = "platform-api"
+version = "0.1.0"
+edition = "2021"
+publish = false
+
+[dependencies]
+axum = "0.8.9"
+platform-core = { path = "../core" }
+platform-store = { path = "../store" }
+serde = { version = "1.0.229", features = ["derive"] }
+
+[dev-dependencies]
+tokio = { version = "1.54.1", features = ["macros", "rt"] }
+tower = { version = "0.5.3", features = ["util"] }

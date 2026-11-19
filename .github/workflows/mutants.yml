@@ -1,0 +1,29 @@
+name: mutants
+
+# Mutation testing sur tout le workspace est trop lent pour tourner à chaque push ou pull request
+# (quelques minutes rien que pour un seul petit fichier en local) : programmé une fois par semaine,
+# plus déclenchable à la main. Ne bloque jamais une fusion ; les mutants survivants sont visibles
+# dans le résumé du run, à traiter comme un test qui a échoué (CLAUDE.md : « un test qui reste vert
+# alors que le code est cassé est réécrit »).
+on:
+  schedule:
+    - cron: "0 3 * * 1"
+  workflow_dispatch: {}
+
+permissions:
+  contents: read
+
+jobs:
+  mutants:
+    runs-on: ubuntu-latest
+    timeout-minutes: 350
+    steps:
+      - uses: actions/checkout@v4
+      - run: rustup toolchain install stable --profile minimal
+      - run: cargo install cargo-mutants --locked
+      - run: cargo mutants --workspace --no-shuffle --output mutants-report
+      - if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: mutants-report
+          path: mutants-report/mutants.out

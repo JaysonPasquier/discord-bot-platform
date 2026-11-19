@@ -1,0 +1,8 @@
+/target
+mutants.out*
+.env
+*.sqlite
+*.sqlite-journal
+node_modules/
+.platform/
+*.pem
